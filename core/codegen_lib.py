@@ -30,6 +30,12 @@ class HTMLConstruct():
         self.result = self.get_full_element_result()
 
 
+    # Add child HTML element nodes.
+    def add_child_element(self, html_obj):
+        assert(isinstance(html_obj, HTMLConstruct))
+        self.__child_nodes.append(html_obj)
+
+
     # Add attribute name=value strings to HTML tags.
     def add_attribute(self, attribute_obj):
         assert(isinstance(attribute_obj, HTMLAttributeConstruct))
