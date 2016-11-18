@@ -8,7 +8,7 @@ https://github.com/bFraley/Smirk
 MIT License
 https://github.com/bFraley/Smirk/blob/master/LICENSE
 
-File: project-source-file-copyright.py
+File: project_source_file_copyright.py
 
 About: Defines Class for defining and generating meta information
 as comments for Smirk users' projects' source files.
