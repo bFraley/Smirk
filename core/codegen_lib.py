@@ -26,12 +26,15 @@ class HTMLConstruct():
         self.__empty_element = self.__opentag + self.__closetag
         self.__attributes = []
         self.__innertext_value = ''
+        self.__child_nodes = []
+        self.result = self.get_full_element_result()
+
 
     # Add attribute name=value strings to HTML tags.
     def add_attribute(self, attribute_obj):
         assert(isinstance(attribute_obj, HTMLAttributeConstruct))
-
         self.__attributes.append(attribute_obj)
+
 
     # Add inner text to an HTML element.
     # Concats to any existing inner text, unless optional [replace] boolean is True. 
@@ -43,15 +46,42 @@ class HTMLConstruct():
         else:
             self.__innertext_value = str(innertext_obj)
 
-    # Entirely replace old HTML element inner text with new inner text. 
-    def replace_innertext(self, innertext_obj)
+
+    # Get count of inner child HTML element nodes.
+    def get_child_count(self):
+        return len(self.child_nodes)
 
 
     # Return full completed HTML element node string.
-    def get_full_element(self):
+    def get_full_element_result(self):
+
+        # Insert attributes in opening tag.
+        open_tag = list(self.__opentag)
+
+        for attr in self.__attributes:
+            open_tag(attr, -1)
+
+        open_tag.join()
+
+        # If no children nodes...
+        # Concat open tag, attributes, inner text value, and closing tag.
+
+        if self.get_child_count() < 1:
+            self.result = open_tag + self.__innertext_value + self.__closetag
+            return self.result
+        else:
+            parent_wrapper = open_tag + self.__innertext_value
+
+            # Recursive concat children and grandchildren HTML nodes.
+            for child_element in self.__child_nodes:
+                parent_wrapper += child_element.get_full_element_result()
+
+            self.result = parent_wrapper + self.__closetag
+            return self.result
+
 
     def __str__(self):
-        return self.__empty_element
+        return self.result
 
 
 # Construct a partial, or empty HTML attribute object.
