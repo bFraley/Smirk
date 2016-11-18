@@ -55,7 +55,7 @@ class HTMLConstruct():
 
     # Get count of inner child HTML element nodes.
     def get_child_count(self):
-        return len(self.child_nodes)
+        return len(self.__child_nodes)
 
 
     # Return full completed HTML element node string.
@@ -67,14 +67,13 @@ class HTMLConstruct():
         for attr in self.__attributes:
             open_tag(attr, -1)
 
-        open_tag.join()
+        open_tag = ''.join(open_tag)
 
         # If no children nodes...
         # Concat open tag, attributes, inner text value, and closing tag.
 
         if self.get_child_count() < 1:
             self.result = open_tag + self.__innertext_value + self.__closetag
-            return self.result
         else:
             parent_wrapper = open_tag + self.__innertext_value
 
@@ -83,7 +82,8 @@ class HTMLConstruct():
                 parent_wrapper += child_element.get_full_element_result()
 
             self.result = parent_wrapper + self.__closetag
-            return self.result
+        
+        return self.result
 
 
     def __str__(self):
