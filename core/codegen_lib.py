@@ -25,12 +25,30 @@ class HTMLConstruct():
         self.__closetag = '</' + self.html_tagname + '>'
         self.__empty_element = self.__opentag + self.__closetag
         self.__attributes = []
+        self.__innertext_value = ''
 
     # Add attribute name=value strings to HTML tags.
     def add_attribute(self, attribute_obj):
         assert(isinstance(attribute_obj, HTMLAttributeConstruct))
+
         self.__attributes.append(attribute_obj)
 
+    # Add inner text to an HTML element.
+    # Concats to any existing inner text, unless optional [replace] boolean is True. 
+    def add_innertext(self, innertext_obj, replace=False):
+        assert(isinstance(innertext_obj, HTMLInnerTextConstruct))
+
+        if not replace:
+            self.__innertext_value += str(innertext_obj)
+        else:
+            self.__innertext_value = str(innertext_obj)
+
+    # Entirely replace old HTML element inner text with new inner text. 
+    def replace_innertext(self, innertext_obj)
+
+
+    # Return full completed HTML element node string.
+    def get_full_element(self):
 
     def __str__(self):
         return self.__empty_element
