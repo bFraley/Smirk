@@ -67,10 +67,10 @@ file_extensions = {
     # Slash direction is optional, for supporting Windows file systems.
 
 class FileNameConstruct():
-    def __init__(self, filename_str, extension_str=None, slash_direction=None):
+    def __init__(self, filename_str, extension_str=None, slash_direction=''):
         self.filename_str = filename_str
         self.extension_str = extension_str or None
-        self.slash_direction = slash_direction
+        self.slash_direction = slash_direction or '/'
         self.name = self.get_full_filename()
 
     # Concat values and return full filename string.
@@ -86,10 +86,9 @@ class FileNameConstruct():
         if not self.prepend_str == self.slash_direction:
             self.prepend_str += self.slash_direction
 
-        self.name = self.prepend_str + self.name
+        self.filename_str = self.prepend_str + self.filename_str
+        self.name = self.get_full_filename()
 
 
     def __str__(self):
         return self.name
-
-
