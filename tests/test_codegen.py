@@ -29,4 +29,8 @@ def test_HTMLAttributeConstruct():
 def test_HTMLInnerTextConstruct():
     new_html_inner_text = HTMLInnerTextConstruct('hello world')
     print(new_html_inner_text)
+
+def test_FileNameConstruct():
+    new_filename = FileNameConstruct('test', file_extensions['html'])
+    print(new_filename)
     
