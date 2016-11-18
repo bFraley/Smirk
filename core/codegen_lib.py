@@ -24,6 +24,13 @@ class HTMLConstruct():
         self.__opentag = '<' + self.html_tagname + '>'
         self.__closetag = '</' + self.html_tagname + '>'
         self.__empty_element = self.__opentag + self.__closetag
+        self.__attributes = []
+
+    # Add attribute name=value strings to HTML tags.
+    def add_attribute(self, attribute_obj):
+        assert(isinstance(attribute_obj, HTMLAttributeConstruct))
+        self.__attributes.append(attribute_obj)
+
 
     def __str__(self):
         return self.__empty_element
