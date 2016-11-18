@@ -14,14 +14,14 @@ About: Provides utilities for Smirk specific code generation of
 HTML, CSS, JS, and other languages and source file formats. 
 """
 
-class HTMLConstruct(html_tagname):
-    def __init__(self):
+class HTMLConstruct():
+    def __init__(self, html_tagname):
         self.html_tagname = html_tagname
         self.__opentag = '<' + self.html_tagname + '>'
         self.__closetag = '</' + self.html_tagname + '>'
-        self.__empty_element = self.__opentag + self.closetag
+        self.__empty_element = self.__opentag + self.__closetag
 
 
-        def __str__(self):
-            return self.__empty_element
-            
+    def __str__(self):
+        return self.__empty_element
+        

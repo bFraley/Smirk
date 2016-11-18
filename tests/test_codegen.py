@@ -15,4 +15,9 @@ About: Tests for the folllowing files.
     2. core/codegen.py (Smirk runtime script)
 """
 
-from ../core import codegen_lib
+from nose.tools import *
+from core.codegen_lib import *
+
+def test_HTMLConstruct():
+    new_html_node = HTMLConstruct('h1')
+    print(new_html_node)
