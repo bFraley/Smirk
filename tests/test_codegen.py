@@ -46,8 +46,8 @@ def test_HTMLInnerTextConstruct():
 
 def test_HTMLCodeGen():
     wrapper_div = HTMLConstruct('div')
-    class_attr = HTMLAttributeConstruct('class')
-    id_attr = HTMLAttributeConstruct('id')
+    class_attr = HTMLAttributeConstruct('class', 'my-class')
+    id_attr = HTMLAttributeConstruct('id', 'my-id')
     
 
 
