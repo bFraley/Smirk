@@ -99,14 +99,16 @@ class HTMLAttributeConstruct():
         self.__quote_str = '"'
         self.__equal_str_plus_quote = '="'
         self.__empty_attribute = self.attribute_name + '=""'
-        self.result = get_full_attribute_result()
+        self.result = self.get_full_attribute_result()
 
     def get_full_attribute_result(self):
-        if assign_val:
+        if self.assign_val:
             self.result = self.attribute_name + self.__equal_str_plus_quote \
             + self.assign_val + self.__quote_str
         else:
             self.result = self.__empty_attribute
+
+        return self.result
 
     def __str__(self):
         return self.result

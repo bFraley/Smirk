@@ -32,8 +32,8 @@ def test_HTMLConstruct():
 
 def test_HTMLAttributeConstruct():
     new_html_attribute = HTMLAttributeConstruct('name')
-    print(new_html_attribute)
-    assert(str(new_html_attribute) == 'name=""')
+    print(new_html_attribute.result)
+    assert(new_html_attribute.result == 'name=""')
 
 def test_HTMLInnerTextConstruct():
     new_html_inner_text = HTMLInnerTextConstruct('hello world')
