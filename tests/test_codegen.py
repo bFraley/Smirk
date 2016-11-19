@@ -45,11 +45,25 @@ def test_HTMLInnerTextConstruct():
 # ---------------------------------------------
 
 def test_HTMLCodeGen():
+
+    # Test HTMLConstruct
+    # Setup wrapper parent element, init class and id attributes
     wrapper_div = HTMLConstruct('div')
+
+    # Test HTMLAttributeConstruct
     class_attr = HTMLAttributeConstruct('class', 'my-class')
     id_attr = HTMLAttributeConstruct('id', 'my-id')
-    
 
+    # Test HTMLConstruct.add_attribute
+    wrapper_div.add_attribute(class_attr)
+    wrapper_div.add_attribute(id_attr)
+    assert(len(wrapper_div.test_attributes) > 0)
+
+    # Test HTMLInnerTextConstruct
+    wrapper_text = HTMLInnerTextConstruct("Hello from parent element!")
+    
+    # Test HTMLConstruct.add_innertext
+    wrapper_div.add_innertext(wrapper_text)
 
 
 

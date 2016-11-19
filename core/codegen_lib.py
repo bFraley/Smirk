@@ -29,6 +29,10 @@ class HTMLConstruct():
         self.__child_nodes = []
         self.result = self.get_full_element_result()
 
+        # Public assignments for development tests.
+        self.test_attributes = self.__attributes
+        self.test_child_nodes = self.__child_nodes
+
 
     # Add child HTML element nodes.
     def add_child_element(self, html_obj):
