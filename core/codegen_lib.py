@@ -92,15 +92,24 @@ class HTMLConstruct():
 
 # Construct a partial, or empty HTML attribute object.
 class HTMLAttributeConstruct():
-    def __init__(self, attribute_name):
+    def __init__(self, attribute_name, assign_val=False):
         self.attribute_name = attribute_name
+        self.assign_val = assign_val
         self.__equal_str = '='
         self.__quote_str = '"'
         self.__equal_str_plus_quote = '="'
         self.__empty_attribute = self.attribute_name + '=""'
+        self.result = get_full_attribute_result()
+
+    def get_full_attribute_result(self):
+        if assign_val:
+            self.result = self.attribute_name + self.__equal_str_plus_quote \
+            + self.assign_val + self.__quote_str
+        else:
+            self.result = self.__empty_attribute
 
     def __str__(self):
-        return self.__empty_attribute
+        return self.result
 
 
 # Construct a partial, empty, or defined HTML innerText string object.
