@@ -69,7 +69,7 @@ class HTMLConstruct():
         open_tag = list(self.__opentag)
 
         for attr in self.__attributes:
-            open_tag(attr, -1)
+            open_tag.insert(-1, attr.result)
 
         open_tag = ''.join(open_tag)
 

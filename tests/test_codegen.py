@@ -74,6 +74,8 @@ def test_HTMLCodeGen():
     wrapper_div.add_child_element(par1)
     wrapper_div.add_child_element(par2)
 
+    print(wrapper_div.get_full_element_result())
+
 # File Name Constructs Tests
 # --------------------------
 
