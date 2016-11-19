@@ -67,6 +67,7 @@ class HTMLConstruct():
 
         # Insert attributes in opening tag.
         open_tag = list(self.__opentag)
+        open_tag.insert(-1, ' ') 
 
         for attr in self.__attributes:
             open_tag.insert(-1, attr.result)
@@ -83,7 +84,7 @@ class HTMLConstruct():
 
             # Recursive concat children and grandchildren HTML nodes.
             for child_element in self.__child_nodes:
-                parent_wrapper += child_element.get_full_element_result()
+                parent_wrapper += ('\n    ' + child_element.get_full_element_result())
 
             self.result = parent_wrapper + self.__closetag
         
