@@ -12,3 +12,5 @@ File: smirk_lang.py
 
 About: Defines grammar and syntax for Smirk template language.
 """
+
+smirklang = '!'

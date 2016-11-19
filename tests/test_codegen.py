@@ -8,15 +8,17 @@ https://github.com/bFraley/Smirk
 MIT License
 https://github.com/bFraley/Smirk/blob/master/LICENSE
 
-File: test-codegen.py
+File: test_codegen.py
 
-About: Tests for the folllowing files.
-    1. core/codegen-lib.py (Smirk implementation library)
+About: Tests for the following files.
+    1. core/codegen_lib.py (Smirk implementation library)
     2. core/codegen.py (Smirk runtime script)
 """
 
 from nose.tools import *
 from core.codegen_lib import *
+
+print('........runnning core/test_codegen.py')
 
 # HTML Constructs Tests
 # ---------------------
