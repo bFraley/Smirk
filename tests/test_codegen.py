@@ -69,6 +69,14 @@ def test_HTMLCodeGen():
     # 2 Paragraphs (direct children)
     par1 = HTMLConstruct('p')
     par2 = HTMLConstruct('p')
+
+    # Create inner text values for par1, and par2
+    par1_text = HTMLInnerTextConstruct('Paragraph 1')
+    par2_text = HTMLInnerTextConstruct('Paragraph 2')
+
+    # Add inner text for par1 and par 2
+    par1.add_innertext(par1_text)
+    par2.add_innertext(par2_text)
     
     # Test HTMLConstruct.add_child_element
     wrapper_div.add_child_element(par1)
