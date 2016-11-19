@@ -65,8 +65,14 @@ def test_HTMLCodeGen():
     # Test HTMLConstruct.add_innertext
     wrapper_div.add_innertext(wrapper_text)
 
-
-
+    # HTMLConstruct more elements for child_node tests
+    # 2 Paragraphs (direct children)
+    par1 = HTMLConstruct('p')
+    par2 = HTMLConstruct('p')
+    
+    # Test HTMLConstruct.add_child_element
+    wrapper_div.add_child_element(par1)
+    wrapper_div.add_child_element(par2)
 
 # File Name Constructs Tests
 # --------------------------
