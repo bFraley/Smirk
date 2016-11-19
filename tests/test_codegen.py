@@ -18,6 +18,9 @@ About: Tests for the folllowing files.
 from nose.tools import *
 from core.codegen_lib import *
 
+# HTML Constructs Tests
+# ---------------------
+
 def test_HTMLConstruct():
     new_html_node = HTMLConstruct('h1')
     print(new_html_node)
@@ -36,6 +39,23 @@ def test_HTMLInnerTextConstruct():
     new_html_inner_text = HTMLInnerTextConstruct('hello world')
     print(new_html_inner_text)
     assert(str(new_html_inner_text.content_str) == 'hello world')
+
+
+# Test Script Combining HTML Constructs Codegen
+# ---------------------------------------------
+
+def test_HTMLCodeGen():
+    wrapper_div = HTMLConstruct('div')
+    class_attr = HTMLAttributeConstruct('class')
+    id_attr = HTMLAttributeConstruct('id')
+    
+
+
+
+
+
+# File Name Constructs Tests
+# --------------------------
 
 def test_FileNameConstruct():
     new_filename = FileNameConstruct('test', file_extensions['html'])
