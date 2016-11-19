@@ -65,14 +65,28 @@ class HTMLConstruct():
     # Return full completed HTML element node string.
     def get_full_element_result(self):
 
-        # Insert attributes in opening tag.
-        open_tag = list(self.__opentag)
-        open_tag.insert(-1, ' ') 
+        # self.__opentag remains unaltered, preserving the plain tag.
+        open_tag = self.__opentag
 
-        for attr in self.__attributes:
-            open_tag.insert(-1, attr.result)
+        # Amount of attributes.
+        attr_count = len(self.__attributes)
+        spacing = ' '
 
-        open_tag = ''.join(open_tag)
+        # If tag has attrubutes.
+        if attr_count > 0: 
+            # Insert space before attributes.
+            open_tag = list(self.__opentag)
+            open_tag.insert(-1, spacing) 
+
+            for attr in self.__attributes:
+
+                # Don't add a space on final attrubute before closing '>' on tag.
+                if self.__attributes.index(attr) == attr_count - 1:
+                    spacing = ''
+
+                open_tag.insert(-1, attr.result + spacing)
+
+            open_tag = ''.join(open_tag)
 
         # If no children nodes...
         # Concat open tag, attributes, inner text value, and closing tag.
