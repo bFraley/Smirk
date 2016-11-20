@@ -13,4 +13,3 @@ File: smirk_lang_parse.py
 About: Implements parser for Smirk template language.
 """
 
-smirklangparse = '!'

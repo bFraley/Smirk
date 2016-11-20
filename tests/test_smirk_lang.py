@@ -21,5 +21,7 @@ from nose.tools import *
 from core.smirk_lang import *
 from core.smirk_lang_parse import *
 
-def test_smirktests():
-    assert(smirklang == smirklangparse)
+def test_SmirkTag():
+    tagblock = SmirkTag()
+    assert(tagblock.__str__() == '<smirk></smirk>')
+    
