@@ -21,7 +21,7 @@ from nose.tools import *
 from core.smirk_lang import *
 from core.smirk_lang_parse import *
 
-def test_SmirkTag():
+def test_SmirkTemplateTag():
     tagblock = SmirkTag()
     assert(tagblock.__str__() == '<smirk></smirk>')
     

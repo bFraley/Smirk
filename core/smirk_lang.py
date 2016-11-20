@@ -19,7 +19,8 @@ About: Defines grammar and syntax for Smirk template language.
 # features that interace with Smirk's server-side API's, Python, and
 # database management systems.
 
-class SmirkTag():
+# Defines Smirk tag tokens.
+class SmirkTemplateTag():
     def __init__(self):
         self.__OPEN = '<smirk>'
         self.__CLOSE = '</smirk>'
@@ -33,3 +34,26 @@ class SmirkTag():
     def __str__(self):
         return self.open_token() + self.close_token()
 
+
+# Defines a control logic token (for, if, else)
+class SmirkControlToken():
+    pass
+
+# Defines a comparison boolean token (is, not, and, or)
+class SmirkComparisonToken():
+    pass
+
+# Defines an extension token that is bound/bindable to a value
+class SmirkExtensionToken():
+    pass
+
+# Error based token keyword definition classes
+# --------------------------------------------
+
+# Defines developer defined error token
+class SmirkDefineErrorToken():
+    pass
+
+# Defines Smirk implementation defined error token
+class SmirkCoreErrorToken():
+    pass
