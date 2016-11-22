@@ -24,4 +24,13 @@ from core.smirk_lang_parse import *
 def test_SmirkTemplateTag():
     tagblock = SmirkTag()
     assert(tagblock.__str__() == '<smirk></smirk>')
+
+def test_SmirkControlToken():
+    pass
+
+def test_SmirkComparisonToken():
+    pass
+
+def test_SmirkExtensionToken():
+    pass
     

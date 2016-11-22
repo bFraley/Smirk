@@ -51,16 +51,13 @@ class SmirkControlToken():
         self.expression_type_pattern = []
 
         # Implementation type reference for SmirkControlToken
-
         self.__SMIRKTOKENTYPE = 'ControlToken'
         
         # An explicit s-expression output pattern for parsing.
-
         self.__parse_pattern_output = ''
 
         # Generic pattern for handling error messages
         # for syntax rules of this token type.
-        
         self.__syntax_error_reference_pattern = ''
 
         def generate_parse_pattern_output(self):
@@ -72,11 +69,41 @@ class SmirkControlToken():
 
 # Defines a comparison boolean token (is, not, and, or)
 class SmirkComparisonToken():
-    pass
+     def __init__(self, token_str):
+        self.token_str = token_str
+        self.left_type_and_val = []
+        self.right_type_and_val = []
 
-# Defines an extension token that is bound/bindable to a value
+        # Implementation type reference for SmirkControlToken
+        self.__SMIRKTOKENTYPE = 'ComparisonToken'
+        
+        # An explicit s-expression output pattern for parsing.
+        self.__parse_pattern_output = [
+            ('LTYPE', 'LTYPE'),
+            ('LVAL', 'LVAL'),
+            ('COMP_OP', 'COMP_OP'),
+            ('RTYPE', 'RTYPE'),
+            ('RVAL', 'RVAL'),
+        ]
+
+        # Generic pattern for handling error messages
+        # for syntax rules of this token type.    
+        self.__syntax_error_reference_pattern = ''
+
+        def generate_parse_pattern_output(self):
+            pass
+
+        def generate_syntax_error_reference(self):
+            pass
+
+# Defines an extension token that is bound/bindable to a value,
+# is a base implementation type for user defined variables.
 class SmirkExtensionToken():
-    pass
+    def __init__(self, namespace_name, value_type, init_default_value):
+        self.namespace_name = namespace_name
+        self.value_type = value_type
+        self.init_default_value = init_default_value
+
 
 # Error based token keyword definition classes
 # --------------------------------------------
