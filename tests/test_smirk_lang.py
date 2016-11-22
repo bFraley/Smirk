@@ -22,7 +22,7 @@ from core.smirk_lang import *
 from core.smirk_lang_parse import *
 
 def test_SmirkTemplateTag():
-    tagblock = SmirkTag()
+    tagblock = SmirkTemplateTag()
     assert(tagblock.__str__() == '<smirk></smirk>')
 
 def test_SmirkControlToken():

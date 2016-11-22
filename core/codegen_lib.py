@@ -143,6 +143,93 @@ class HTMLInnerTextConstruct():
 
 
 
+# CSS
+# ----------------------------------------------------------------------
+
+#Construct a CSS style definition code block.
+# Requires list of selectors, and dictionary values of rules.
+class CSSConstruct():
+    def __init__(self, selector_list, rule_dict):
+
+        assert(isinstance(selector_list, list))
+        assert(isinstance(rule_dict, dict))
+
+        self.selector_list = selector_list
+        self.rule_dict = rule_dict
+
+        self.__LCURL = '{'
+        self.__RCURL = '}'
+        self.__DOT = '.'
+        self.__HASH = "#"
+        self.__COMMA = ','
+        self.__COMMASPC = ', '
+        self.__COLON = ":",
+        self.__SEMICOLON = ';'
+        self.__topcurl = self.__LCURL + '\n'
+        self.__botcurl = self.__RCURL + '\n'
+
+        self.__valid_html_selector_list = False
+        self.__valid_userdef_selector_list = False
+        self.__valid_style_attributes_list = False
+        self.__valid_style_rules_list = False
+
+        self.__selectors_line = ''
+        self.__rules_values_lines = ''
+
+        def concat_selectors_line(self):
+            pass
+
+        def concat_rules_values_line(self):
+            pass_
+
+        def get_full_css_block_result(self):
+            pass
+
+
+# JavaScript
+# ----------------------------------------------------------------------
+# Reminder that in this library (codegen_lib.py), is not Smirk's implementation of it's
+# front end JavaScript features. Here we are defining helper classes for the purpose 
+# of generating basic JavaScript code constructs.
+
+# Smirk template code is parsed into a que system that outputs
+# an intermediate representation of the source code to generate.
+# Then, the class types and methods are used to generate and write code to file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Smirk specific path and file extension utils.
 # ----------------------------------------------------------------------
 
