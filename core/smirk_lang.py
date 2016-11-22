@@ -36,8 +36,39 @@ class SmirkTemplateTag():
 
 
 # Defines a control logic token (for, if, else)
+# Accepts the literal token string eg: 'if', 'for', 'every'
+
+# Accepts expression pattern type from explicit
+# list of defined grammar patterns.
+        # Examples:
+        # (var in list)
+        # (every (key, value) of object),
+        # (only (key, value) of object)
+
 class SmirkControlToken():
-    pass
+    def __init__(self, token_str, expression_type_pattern):
+        self.token_str = token_str
+        self.expression_type_pattern = []
+
+        # Implementation type reference for SmirkControlToken
+
+        self.__SMIRKTOKENTYPE = 'ControlToken'
+        
+        # An explicit s-expression output pattern for parsing.
+
+        self.__parse_pattern_output = ''
+
+        # Generic pattern for handling error messages
+        # for syntax rules of this token type.
+        
+        self.__syntax_error_reference_pattern = ''
+
+        def generate_parse_pattern_output(self):
+            pass
+
+        def generate_syntax_error_reference(self):
+            pass
+
 
 # Defines a comparison boolean token (is, not, and, or)
 class SmirkComparisonToken():
