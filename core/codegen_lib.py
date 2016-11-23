@@ -137,12 +137,11 @@ class HTMLAttributeConstruct():
 
 # Construct a partial, empty, or defined HTML innerText string object.
 class HTMLInnerTextConstruct():
-    def __init__(self, content_str):
-        self.content_str = content_str or ""
+    def __init__(self, content_str=""):
+        self.content_str = content_str
 
     def __str__(self):
         return self.content_str
-
 
 
 # CSS
@@ -218,9 +217,37 @@ class CSSConstruct():
             return_result = '\n' + self.concat_selectors_line() \
                 + self.concat_attributes_lines() \
                     + '\n' + self.__RCURL + '\n'
+
+
+
+class CSSSelectorConstruct():
+    def __init__(self, selector_name, selector_type=''):
+        self.selector_type = selector_type
+        self.selector_name = selector_name
+
+        self.__prefix = ''
+        self.__pseudo = ''
+        self.get_result = get_full_selector_result()
+        self.result = ''
+
+        def get_full_selector_result(self):
+            self.result += self.__prefix + self.selector_name
+            return self.result
+
+        def __str__(self):
+            return self.result
+
+
+class CSSAttributeConstruct():
+    def __init__(self, atrr_name, attr_val):
+        self.__attr_name = attr_name
+        self.__attr_val = attr_val
+        self.result = (self.__attr_name, self.__attr_val)
+
+        def __str__(self):
+            return  self.result
+
             
-
-
 # JavaScript
 # ----------------------------------------------------------------------
 # Reminder that in this library (codegen_lib.py), is not Smirk's implementation of it's
