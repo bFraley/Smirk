@@ -27,7 +27,8 @@ class HTMLConstruct():
         self.__attributes = []
         self.__innertext_value = ''
         self.__child_nodes = []
-        self.result = self.get_full_element_result()
+        self.get_result = self.get_full_element_result()
+        self.result = ''
 
         # Public assignments for development tests.
         self.test_attributes = self.__attributes
@@ -175,6 +176,8 @@ class CSSConstruct():
 
         self.__selectors_line = ''
         self.__rules_values_lines = ''
+
+        self.result = get_full_css_block_result()
 
         def concat_selectors_line(self):
             pass
