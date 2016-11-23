@@ -148,9 +148,9 @@ class HTMLInnerTextConstruct():
 # ----------------------------------------------------------------------
 
 #Construct a CSS style definition code block.
-# Requires list of selectors, and dictionary values of rules.
+# Accepts list of selectors, and dictionary values of rules.
 class CSSConstruct():
-    def __init__(self, selector_list, rule_dict):
+    def __init__(self, selector_list=[], rule_dict={}):
 
         assert(isinstance(selector_list, list))
         assert(isinstance(rule_dict, dict))
@@ -177,13 +177,30 @@ class CSSConstruct():
         self.__selectors_line = ''
         self.__rules_values_lines = ''
 
-        self.result = get_full_css_block_result()
+        self.get_result = get_full_css_block_result()
+        self.result = ''
+
+        def add_selector_name(selector_obj):
+            self.selectors.append(selector_obj)
+
+        def add_style_attribute(style_attr_obj):
+            rule_dict[style_attr_obj.attr_name] = style_attr_obj.attr_value
 
         def concat_selectors_line(self):
-            pass
+            line_result = ''
+            selector_count = len(self.selector_list)
+
+            for selector in self.selector_list:
+
+                # Don't add comma after last selector, just a space
+                if self.selector_list.index(selector) == selector_count - 1:
+                    line_result += selector + ' ' + self.__LCURL
+                else:
+                    line_result += (selector + self.__COMMASPC)
+
 
         def concat_rules_values_line(self):
-            pass_
+            pass
 
         def get_full_css_block_result(self):
             pass
