@@ -119,7 +119,8 @@ class HTMLAttributeConstruct():
         self.__quote_str = '"'
         self.__equal_str_plus_quote = '="'
         self.__empty_attribute = self.attribute_name + '=""'
-        self.result = self.get_full_attribute_result()
+        self.get_result = self.get_full_attribute_result()
+        self.result = ''
 
     def get_full_attribute_result(self):
         if self.assign_val:
@@ -180,12 +181,15 @@ class CSSConstruct():
         self.get_result = get_full_css_block_result()
         self.result = ''
 
+        # Add a CSS selector to this block of CSS
         def add_selector_name(selector_obj):
             self.selectors.append(selector_obj)
 
+        # Assign new style rule and value to rule_dict of this CSS block.
         def add_style_attribute(style_attr_obj):
             rule_dict[style_attr_obj.attr_name] = style_attr_obj.attr_value
 
+        # Output string line of the selectors, e.g. "h1, h2, h3 {\n"
         def concat_selectors_line(self):
             line_result = ''
             selector_count = len(self.selector_list)
@@ -198,12 +202,23 @@ class CSSConstruct():
                 else:
                     line_result += (selector + self.__COMMASPC)
 
+            return line_result
+        # Output lines of the style attributes/values, e.g. "color: red;\n"
+        def concat_attributes_lines(self):
+            line_result = ''
 
-        def concat_rules_values_line(self):
-            pass
+            for (k, v) in rule_dict:
+                line_result += '\n' \
+                    + k + self.__COLON + ' ' + v + self.__SEMICOLON
+
+
+            return line_result
 
         def get_full_css_block_result(self):
-            pass
+            return_result = '\n' + self.concat_selectors_line() \
+                + self.concat_attributes_lines() \
+                    + '\n' + self.__RCURL + '\n'
+            
 
 
 # JavaScript
