@@ -35,7 +35,7 @@ def test_HTMLConstruct():
 def test_HTMLAttributeConstruct():
     new_html_attribute = HTMLAttributeConstruct('name')
     print(new_html_attribute.result)
-    assert(new_html_attribute.result == 'name=""')
+    assert(new_html_attribute.get_result == 'name=""')
 
 def test_HTMLInnerTextConstruct():
     new_html_inner_text = HTMLInnerTextConstruct('hello world')
@@ -88,6 +88,23 @@ def test_HTMLCodeGen():
 
     print(wrapper_div.get_full_element_result())
 
+
+# CSS Constructs Tests
+# --------------------
+
+def test_CSSConstruct():
+    pass
+
+def test_CSSSelectorConstruct():
+    pass
+
+def test_CSSAttributeConstruct():
+    pass
+
+# JS Constructs Tests
+# -------------------
+
+
 # File Name Constructs Tests
 # --------------------------
 
@@ -97,12 +114,6 @@ def test_FileNameConstruct():
 
     new_filename.prepend('previousdir')
     assert(new_filename.name == new_filename.filename_str + new_filename.extension_str)
-
-
-
-
-
-
 
 
 # Test Helper Functions for building HTML Construct elements.
@@ -129,4 +140,18 @@ def init_two_paragraphs(parent_element):
     parent_element.add_child_element(par1)
     parent_element.add_child_element(par2)
 
+
+
+# Test Helper Functions for building CSS Construct elements.
+# -----------------------------------------------------------
+
+
+
+# Test Helper Functions for building JS Construct elements.
+# -----------------------------------------------------------
+
+
+
+# Test Helper Functions for building File Name Construct elements.
+# -----------------------------------------------------------
 
