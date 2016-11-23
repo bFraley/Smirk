@@ -197,9 +197,9 @@ class CSSConstruct():
 
                 # Don't add comma after last selector, just a space
                 if self.selector_list.index(selector) == selector_count - 1:
-                    line_result += selector + ' ' + self.__LCURL
+                    line_result += selector + ' '
                 else:
-                    line_result += (selector + self.__COMMASPC)
+                    line_result += selector + self.__COMMASPC
 
             return line_result
         # Output lines of the style attributes/values, e.g. "color: red;\n"
@@ -214,10 +214,11 @@ class CSSConstruct():
             return line_result
 
         def get_full_css_block_result(self):
-            return_result = '\n' + self.concat_selectors_line() \
-                + self.concat_attributes_lines() \
-                    + '\n' + self.__RCURL + '\n'
+            return_result = self.concat_selectors_line() \
+                + self.topcurl + self.concat_attributes_lines() \
+                    + '\n' + self.__botcurl
 
+            return return_result
 
 
 class CSSSelectorConstruct():
