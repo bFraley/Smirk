@@ -176,16 +176,15 @@ class CSSConstruct():
 
         self.__selectors_line = ''
         self.__rules_values_lines = ''
-
-        self.get_result = get_full_css_block_result()
+        self.get_result = self.get_full_css_block_result()
         self.result = ''
 
         # Add a CSS selector to this block of CSS
-        def add_selector_name(selector_obj):
+        def add_selector_name(self, selector_obj):
             self.selectors.append(selector_obj)
 
         # Assign new style rule and value to rule_dict of this CSS block.
-        def add_style_attribute(style_attr_obj):
+        def add_style_attribute(self, style_attr_obj):
             rule_dict[style_attr_obj.attr_name] = style_attr_obj.attr_value
 
         # Output string line of the selectors, e.g. "h1, h2, h3 {\n"
@@ -202,6 +201,7 @@ class CSSConstruct():
                     line_result += selector + self.__COMMASPC
 
             return line_result
+
         # Output lines of the style attributes/values, e.g. "color: red;\n"
         def concat_attributes_lines(self):
             line_result = ''
@@ -210,15 +210,15 @@ class CSSConstruct():
                 line_result += '\n' \
                     + k + self.__COLON + ' ' + v + self.__SEMICOLON
 
-
             return line_result
 
+
         def get_full_css_block_result(self):
-            return_result = self.concat_selectors_line() \
-                + self.topcurl + self.concat_attributes_lines() \
+            result = self.concat_selectors_line() \
+                + self.__topcurl + self.concat_attributes_lines() \
                     + '\n' + self.__botcurl
 
-            return return_result
+            return result
 
 
 class CSSSelectorConstruct():

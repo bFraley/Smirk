@@ -93,7 +93,9 @@ def test_HTMLCodeGen():
 # --------------------
 
 def test_CSSConstruct():
-    pass
+    selectors = ['h1']
+    rules = {'color':'red'}
+    new_css_block = CSSConstruct(selectors, rules)
 
 def test_CSSSelectorConstruct():
     pass
