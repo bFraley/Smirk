@@ -98,7 +98,15 @@ def test_CSSConstruct():
     new_css_block = CSSConstruct(selectors, rules)
 
 def test_CSSSelectorConstruct():
-    pass
+    el_type = '.'
+    el_name = 'some_element_class'
+
+    new_css_selector_line = CSSSelectorConstruct(el_name, el_type)
+    result = new_css_selector_line.get_full_selector_result()
+
+    assert(result == '.some_element_class ')
+    print(result)
+
 
 def test_CSSAttributeConstruct():
     pass

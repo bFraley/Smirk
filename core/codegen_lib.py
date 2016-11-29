@@ -224,22 +224,24 @@ class CSSConstruct():
         return self.result
 
 
+# Output CSS selector code line up to open curly brace' 
 class CSSSelectorConstruct():
     def __init__(self, selector_name, selector_type=''):
         self.selector_type = selector_type
         self.selector_name = selector_name
 
-        self.__prefix = ''
+        # TODO: Need a mechanism for passing in prefix/pseudo types.
+        self.__prefix = self.selector_type
         self.__pseudo = ''
-        self.get_result = get_full_selector_result()
+        self.get_result = self.get_full_selector_result()
         self.result = ''
 
-        def get_full_selector_result(self):
-            self.result += self.__prefix + self.selector_name
-            return self.result
+    def get_full_selector_result(self):
+        self.result = self.__prefix + self.selector_name + ' '
+        return self.result
 
-        def __str__(self):
-            return self.result
+    def __str__(self):
+        return self.result
 
 
 class CSSAttributeConstruct():
@@ -248,8 +250,8 @@ class CSSAttributeConstruct():
         self.__attr_val = attr_val
         self.result = (self.__attr_name, self.__attr_val)
 
-        def __str__(self):
-            return  self.result
+    def __str__(self):
+        return  self.result
 
             
 # JavaScript
