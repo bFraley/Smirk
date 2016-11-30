@@ -13,6 +13,8 @@ File: smirk_lang_parse.py
 About: Implements parser for Smirk template language.
 """
 
+# import runtime_lib.services_processesor
+
 # The parser should only read, never modify users' source files.
 # New, or 'smirk_production' directory source code files are opened
 # for read/write modification and original sources don't need to 
@@ -47,13 +49,13 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
         assert(isinstance(preprocessed_smirkfile_obj, PreprocessedSmirkFile)
         
         # Spec for ServicesEvent parameters not implemented...
-        event_data = runtime_lib.ServicesEvent(preprocessed_smirkfile_obj) 
+        # event_data = runtime_lib.ServicesEvent(preprocessed_smirkfile_obj) 
 
         # Register runtime services event notification,
         # and then the services processor references back to methods
         # in this library that call/start parsing operations.
 
-        runtime_lib.services_processesor.register_event_data(event_data)
+        # runtime_lib.services_processesor.register_event_data(event_data)
 
 
 # A preprocessed HTML file that contains Smirk lang code, 
@@ -64,10 +66,3 @@ class PreprocessedSmirkFile():
     def __init__(self, preprocess_data_obj):
         self.preprocess_data_obj = preprocess_data_obj
 
-    
-
-
-
-
-
-            
