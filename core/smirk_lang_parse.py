@@ -25,19 +25,35 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
         self.__metadata_list = metadata_list
         self.__linecount = 0
         self.__smirk_codeblock_count = 0
-        self.__preprocess_data = {}
+        self.__preprocess_data = []
+        self.__parserevent_data = []
 
     def preprocess_smirkfile(self):
         # Unparsed source file preprocessing performed here.
         # Creates and returns PreprocessedSmirkFile object from
-        # self.preprocess_data values.
+        # self.preprocess_data values. The data values are a list
+        # of blocks of Smirk code pulled from the original file,
+        # with helper meta data about that line(s) associated with
+        # each line / block of <smirk></smirk> tags.
 
         # preproccessed_result = PreprocessedSmirkFile(self.preprocess_data)    
         # return preprocessed_result
         pass
 
+
+    # Send / emit a Smirk file parser event along with the 
+    # preporocessed file object to be parsed.
     def send_file_parser_event(self, preprocessed_smirkfile_obj):
-        pass
+        assert(isinstance(preprocessed_smirkfile_obj, PreprocessedSmirkFile)
+        
+        # Spec for ServicesEvent parameters not implemented...
+        event_data = runtime_lib.ServicesEvent(preprocessed_smirkfile_obj) 
+
+        # Register runtime services event notification,
+        # and then the services processor references back to methods
+        # in this library that call/start parsing operations.
+
+        runtime_lib.services_processesor.register_event_data(event_data)
 
 
 # A preprocessed HTML file that contains Smirk lang code, 
@@ -45,5 +61,13 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
 # SmirkUnparsedSourceFile.preprocess_smirkfile() - defined above.
 
 class PreprocessedSmirkFile():
-    def __init__(self):
-        
+    def __init__(self, preprocess_data_obj):
+        self.preprocess_data_obj = preprocess_data_obj
+
+    
+
+
+
+
+
+            
