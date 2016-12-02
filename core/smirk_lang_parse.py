@@ -29,6 +29,14 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
         self.__smirk_codeblock_count = 0
         self.__preprocess_data = []
         self.__parserevent_data = []
+        self.original_filestring = self.return_filestring()
+        self.filestring = ''
+
+    def return_filestring(self):
+        src = open(self.__filepath_str, 'r')
+        src_read = src.read()
+        src.close()
+        return src_read
 
     def preprocess_smirkfile(self):
         # Unparsed source file preprocessing performed here.
@@ -37,16 +45,32 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
         # of blocks of Smirk code pulled from the original file,
         # with helper meta data about that line(s) associated with
         # each line / block of <smirk></smirk> tags.
+        
+        filestring = self.filestring
+        tag1_index = filestring.index('<smirk>') + 6
+        tag2_index = filestring[s1:].index('</smirk>') + 7
+        tag_range = tag1 + tag2
+        extracted_block = filestring[tag1:tag_range]
 
-        # preproccessed_result = PreprocessedSmirkFile(self.preprocess_data)    
-        # return preprocessed_result
-        pass
+        self.__preprocess_data.append(extracted_block)
+        self.__smirk_codeblock_count += 1
+
+        # Removes the extracted smirk code block and rejoins filestring. 
+        filestring = filestring.split(extracted_block)
+        filestring = ''.join(filestring)
+
+        # If done, return PreprocessedSmirkFile object, else recursive call.
+        if not '<smirk>' in filestring and not '</smirk' in filestring:
+            preproccessed_result = PreprocessedSmirkFile(self.__preprocess_data)    
+            return preprocessed_result
+        else:
+            self.preprocess_smirkfile()
 
 
     # Send / emit a Smirk file parser event along with the 
     # preporocessed file object to be parsed.
     def send_file_parser_event(self, preprocessed_smirkfile_obj):
-        assert(isinstance(preprocessed_smirkfile_obj, PreprocessedSmirkFile)
+        assert(isinstance(preprocessed_smirkfile_obj, PreprocessedSmirkFile))
         
         # Spec for ServicesEvent parameters not implemented...
         # event_data = runtime_lib.ServicesEvent(preprocessed_smirkfile_obj) 
@@ -62,7 +86,8 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
 # which is the resulting object produced by:
 # SmirkUnparsedSourceFile.preprocess_smirkfile() - defined above.
 
+
 class PreprocessedSmirkFile():
-    def __init__(self, preprocess_data_obj):
-        self.preprocess_data_obj = preprocess_data_obj
+    def __init__(self, smirk_codeblock_list):
+        self.smirk_codeblock_list = smirk_codeblock_list
 
