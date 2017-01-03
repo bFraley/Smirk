@@ -25,5 +25,41 @@ class ServicesProcess():
         pass
 
     def init_new_event(service_event_obj):
-        assert(isinstance(service_event_obj, ServiceEvent))
+        if (isinstance(service_event_obj, ServiceEvent)):
+
+            if (service_event_obj.event_type == "parser_proces_event"):
+                # return new ParserProcess
+                return ParserProcess(service_event_obj);
+
+
+class Processor():
+    def __init__(self):
+        self.event_count = 0
+        self.linear_que = []
+        self.selective_que = []
+        self.warnings = []
+        self.errors = []
+        self.step_mode = false
+        self.log_mode = false
+        self.status = 0
+
+    def view_events(self):
         pass
+
+    def view_linear_que(self):
+        pass
+
+    def view_selective_que(self):
+        pass
+
+    def view_warnings(self):
+        pass
+
+    def view_errors(self):
+        pass
+
+    def view_status(self)
+        pass
+
+
+

@@ -21,13 +21,9 @@ ServicesProcessor"""
 class ServiceEvent():
     def __init__(self, smirk_event_type):
         self.smirk_event_type = smirk_event_type
-        pass
-        # self.event_type = get_smirk_event_type
+
 
     def get_smirk_event_type(self):
-        pass
-
-        #if isinstance(self.a_smirk_event_type, PreproccessedSmirkFile):
-            # self.event_type = "parser_process_event"
-            # REF Line # 96 smirk_lang_parse.py
+        if isinstance(self.smirk_event_type, PreproccessedSmirkFile):
+            self.event_type = "parser_process_event"
             
