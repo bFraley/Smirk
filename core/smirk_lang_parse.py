@@ -73,7 +73,7 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
         assert(isinstance(preprocessed_smirkfile_obj, PreprocessedSmirkFile))
         
         # Spec for ServicesEvent parameters not implemented...
-        # event_data = runtime_lib.ServicesEvent(preprocessed_smirkfile_obj) 
+        event_data = runtime_lib.ServiceEvent(preprocessed_smirkfile_obj) 
 
         # Register runtime services event notification,
         # and then the services processor references back to methods
@@ -90,4 +90,10 @@ class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
 class PreprocessedSmirkFile():
     def __init__(self, smirk_codeblock_list):
         self.smirk_codeblock_list = smirk_codeblock_list
+
+
+# A ParserProcess is instantiated by runtime_lib/services_processor.py
+class ParserProcess():
+    def __init__(self):
+        pass
 

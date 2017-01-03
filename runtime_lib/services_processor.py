@@ -15,9 +15,15 @@ directing Smirk's core runtime features.
 """
 
 from core.smirk_lang_parse import ParserProcess
-
-parser_service = ParserProcess()
+from service_event import ServiceEvent
 
 # on parse event registration
 # parser_service.parse()
 
+class ServicesProcess():
+    def __init__(self):
+        pass
+
+    def init_new_event(service_event_obj):
+        assert(isinstance(service_event_obj, ServiceEvent))
+        pass
