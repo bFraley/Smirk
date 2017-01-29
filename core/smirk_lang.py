@@ -115,7 +115,7 @@ class SmirkExtensionToken():
 
 # Defines Smirk implementation defined error token
 class SmirkCoreErrorToken():
-    def __init__(self, error_type, error_msg, misc=null):
+    def __init__(self, error_type, error_msg, misc=None):
         self.error_type = error_type
         self.error_msg - error_msg
         self.misc = misc
@@ -136,6 +136,7 @@ class SmirkDefineErrorToken(SmirkCoreErrorToken):
 
 class SmirkCoreLib():
     def __init__(self):
+        self = self;
 
     # Arithmetic
 
@@ -169,6 +170,9 @@ class SmirkCoreLib():
         return True if v1 == v2 and type(v1) == type(v2) else False
 
     # Numeric Formatting and Type Conversions
+
+
+
 
 
 

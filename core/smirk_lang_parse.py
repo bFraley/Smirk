@@ -21,8 +21,8 @@ About: Implements parser for Smirk template language.
 # ship with production code repositories after building.
 
 # An HTML source file that contains Smirk lang code to be parsed.
-class SmirkUnparsedSourceFile(filepath_str, metadata_list=[]):
-    def __init__(self):
+class SmirkUnparsedSourceFile():
+    def __init__(self, filepath_str, metadata_list=[]):
         self.__filepath_str = filepath_str
         self.__metadata_list = metadata_list
         self.__linecount = 0
