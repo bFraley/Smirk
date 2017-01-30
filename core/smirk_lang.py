@@ -160,13 +160,13 @@ class SmirkCoreLib():
     def cat(self, s1, s2):
         return s1 + s2
 
-    def instring(needle, hay):
+    def instring(self, needle, hay):
         return True if needle in hay else False
 
-    def are_exact_names(s1, s2):
+    def are_exact_names(self, s1, s2):
         return True if s1 == s2 else False
 
-    def are_exact_values(v1, v2):
+    def are_exact_values(self, v1, v2):
         return True if v1 == v2 and type(v1) == type(v2) else False
 
     # Numeric Formatting and Type Conversions

@@ -34,3 +34,20 @@ def test_SmirkComparisonToken():
 def test_SmirkExtensionToken():
     pass
     
+def test_SmirkCoreErrorToken():
+    pass
+
+def test_SMirkDefineErrorToken():
+    pass
+
+def test_SmirkCoreLib():
+    lib = SmirkCoreLib();
+    assert(lib.add(1, 2) == 3)
+    assert(lib.sub(1, 2) == -1)
+    assert(lib.mult(2, 4) == 8)
+    assert(lib.div(2, 1) == 2)
+    assert(lib.mod(19, 2) == 1)
+    assert(lib.instring('hello', 'testhello') == True)
+    assert(lib.cat('he', ('llo' + ' test')) == 'hello test')
+    assert(lib.are_exact_names('test', 'test') == True)
+    assert(lib.are_exact_values(1, '1') == False)
