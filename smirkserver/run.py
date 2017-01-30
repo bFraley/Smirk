@@ -29,7 +29,18 @@ print(start_msg)
 while True:
     connection, addr = listen_socket.accept()
     request = connection.recv(1024)
+    request_string = bytes.decode(request)
+    method = request_string.split(' ')[0]
 
-    response = "HTTP/1.1 200 OK\n\nHello, World!".encode()
+    # Get Requested resource
+    return_resource = ''
+
+    url_file = request_string.split(' ')[1].split('?')[0]
+    if url_file == '/':
+        return_resource = "index.html"
+    else:
+        return_resource = url_file
+
+    response = "HTTP/1.1 200 OK\n\n{}".format(return_resource).encode()
     connection.sendall(response)
     connection.close()

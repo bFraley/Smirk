@@ -20,9 +20,9 @@ def cache_file(cache_list, filename):
 
 def get_cached_file(cache_list, filename):
     for file in cache_list:
-        if file.filename === filename
+        if file.filename == filename:
             return file.content
-        else
+        else:
             return false
 
 
