@@ -25,9 +25,38 @@ def get_cached_file(cache_list, filename):
         else:
             return false
 
+# Returns tuple of route, params
+def get_request_route_and_params(request_input_string):
+    both = request_input_string.split(' ')[1].split('?')
+    return (both[0], both[1:])
 
-def get_request_route():
-    pass
+# Returns Object with key/values of params
+def get_params_list(params_string):
+    print(type(params_string))
+    params_string = str(params_string[0])
+    result = []
 
-def get_request_params():
-    pass
+    # Get multiple url parameters
+    if '&' in params_string:
+        print('yes')
+        params = params_string.split('&')
+        print(params)
+
+        # Append tuples of url params key/values to result[]
+        for par in params:
+            print(par)
+
+            if '=' in par:
+                sides = par.split('=')
+                result.append((sides[0], sides[1]))
+
+    # There's a single url parameter
+    else:
+        if '=' in params_string:
+            sides = params_string.split('=')
+            result.append( (sides[0], sides[1]))
+
+
+    return result
+    
+    

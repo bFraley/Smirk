@@ -35,12 +35,23 @@ while True:
     # Get Requested resource
     return_resource = ''
 
-    url_file = request_string.split(' ')[1].split('?')[0]
-    if url_file == '/':
-        return_resource = "index.html"
-    else:
-        return_resource = url_file
+    route_info = server_lib.get_request_route_and_params(request_string)
 
-    response = "HTTP/1.1 200 OK\n\n{}".format(return_resource).encode()
+    # Return index.html
+    if route_info[0] == '/' and len(route_info[1]) < 1:
+        return_resource = "index.html"
+
+    # Return Route and parameters
+    else:
+        return_resource = route_info[0]
+
+        if len(route_info[1]) > 0:
+            parameters = server_lib.get_params_list(route_info[1])
+
+            for p in parameters:
+                line = 'name: {} value: {}\n'.format(p[0], p[1])
+
+
+    response = "HTTP/1.1 200 OK\n\nROUTE:{}\nPARAMS:{}".format(return_resource, parameters).encode()
     connection.sendall(response)
     connection.close()
