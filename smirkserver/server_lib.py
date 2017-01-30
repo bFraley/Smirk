@@ -30,21 +30,17 @@ def get_request_route_and_params(request_input_string):
     both = request_input_string.split(' ')[1].split('?')
     return (both[0], both[1:])
 
-# Returns Object with key/values of params
+# Returns list of tuples of key/values of params
 def get_params_list(params_string):
-    print(type(params_string))
     params_string = str(params_string[0])
     result = []
 
     # Get multiple url parameters
     if '&' in params_string:
-        print('yes')
         params = params_string.split('&')
-        print(params)
 
         # Append tuples of url params key/values to result[]
         for par in params:
-            print(par)
 
             if '=' in par:
                 sides = par.split('=')
@@ -58,5 +54,4 @@ def get_params_list(params_string):
 
 
     return result
-    
     
