@@ -2,6 +2,12 @@
 
 Proof of concept exploratory work in web framework design and implementation.
 
+To tinker with Smirk: clone, use Python3 and virtualenv/virtualenvwrapper, `pip install -r requirements.txt`
+
+Run the dev server: `python3 smirkserver/run.py`
+
+Run the tests from project root dir with `nosetests -s`
+
 Some design notes:
 
 `core/` - contains core implementation files. 
