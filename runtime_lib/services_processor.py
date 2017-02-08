@@ -43,11 +43,35 @@ class Processor():
         self.log_mode = false
         self.status = 0
 
+    # Return and print processor values, called by methods below
+    def view_by_list(self, processor_item):
+        if self.log_mode:
+            for item in processor_item:
+                print(processor_item)
+
+        return processor_item
+
+    def view_state(self):
+        state = [
+            '\nProcessor State Report\n********************',
+            'Event Count: {}\n'.format(self.event_count),
+            'Linear Events: {}\n'.format(len(self.linear_que),
+            'Selective Events: {}\n'.format(len(self.selective_que),
+            'Warnings: {}\n'.format(len(self.warnings),
+            'Errors: {}\n'.format(len(self.errors)]
+
+        for line in state:
+            print(line)
+
     def view_events(self):
         pass
 
     def view_linear_que(self):
-        pass
+        if (self.log_mode):
+            for linear_event in self.linear_que:
+                print(linear_event)
+
+        return self.linear_que
 
     def view_selective_que(self):
         pass
@@ -57,9 +81,3 @@ class Processor():
 
     def view_errors(self):
         pass
-
-    def view_status(self)
-        pass
-
-
-

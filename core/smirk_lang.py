@@ -117,11 +117,11 @@ class SmirkExtensionToken():
 class SmirkCoreErrorToken():
     def __init__(self, error_type, error_msg, misc=None):
         self.error_type = error_type
-        self.error_msg - error_msg
+        self.error_msg = error_msg
         self.misc = misc
 
     def __str__(self):
-        return 'Error Type: {}\nError Message:{} - {}'.format(self.error_type, self.error_msg, self.misc);
+        return 'Error Type: {}\nError Message:{} - {}'.format(self.error_type, self.error_msg, self.misc)
 
 
 # Defines developer defined error token
@@ -136,7 +136,7 @@ class SmirkDefineErrorToken(SmirkCoreErrorToken):
 
 class SmirkCoreLib():
     def __init__(self):
-        self = self;
+        self = self
 
     # Arithmetic
 

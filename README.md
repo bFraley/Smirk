@@ -10,4 +10,4 @@ Some design notes:
 
 `core_modules/` - larger core Smirk features available to users and `core/` through APIs
 
-`runtime_lib/` - A Smirk application's runtime is based on the idea of service events that are processed by a services processor. Every piece of functionality ends up as a service event type that one ore many services processors handle.
+`runtime_lib/` - A Smirk application's runtime is based on the idea of service events that are processed by a services processor. Every piece of functionality ends up as a service event type that one or many services processors handle.
