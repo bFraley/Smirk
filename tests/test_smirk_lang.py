@@ -37,7 +37,7 @@ def test_SmirkExtensionToken():
 def test_SmirkCoreErrorToken():
     pass
 
-def test_SMirkDefineErrorToken():
+def test_SmirkDefineErrorToken():
     pass
 
 def test_SmirkCoreLib():
