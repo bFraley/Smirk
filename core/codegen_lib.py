@@ -81,7 +81,7 @@ class HTMLConstruct():
 
             for attr in self.__attributes:
 
-                # Don't add a space on final attrubute before closing '>' on tag.
+                # Don't add a space on final attribute before closing '>' on tag.
                 if self.__attributes.index(attr) == attr_count - 1:
                     spacing = ''
 

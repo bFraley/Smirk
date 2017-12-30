@@ -101,18 +101,3 @@ class PreprocessedSmirkFile():
 class ParserProcess():
     def __init__(self, event_data):
         self.event_data = event_data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -51,3 +51,4 @@ def test_SmirkCoreLib():
     assert(lib.cat('he', ('llo' + ' test')) == 'hello test')
     assert(lib.are_exact_names('test', 'test') == True)
     assert(lib.are_exact_values(1, '1') == False)
+    

@@ -170,28 +170,4 @@ class SmirkCoreLib():
         return True if v1 == v2 and type(v1) == type(v2) else False
 
     # Numeric Formatting and Type Conversions
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
