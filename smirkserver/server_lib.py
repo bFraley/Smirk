@@ -54,4 +54,17 @@ def get_params_list(params_string):
 
 
     return result
+
+
+# Returns user defined explicit route paths.
+# Accepts list of of path strings
+def get_explicit_route_paths(route_list):
+    return route_list
+
+# Returns bool for if an explicit route exists
+def explicit_route_exists(route_string, route_list):
+    if route_string in route_list:
+        return True
+    else:
+        return False
     
